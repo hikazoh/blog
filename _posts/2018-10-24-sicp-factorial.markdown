@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "SICP Factori"
+title:  "SICP Factorial"
 date:   2018-10-24 08:31:06 +0900
 categories: clojure sicp
 ---

@@ -16,7 +16,3 @@ Clojureでコード書いてみます。
          (sqrt-itr (/ (+ guess (/ x guess)) 2) x))))
 {% endhighlight %}
 
-
-[jekyll-docs]: http://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
