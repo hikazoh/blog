@@ -1,0 +1,51 @@
+---
+layout: post
+title:  "SICP 1.12練習問題"
+date:   2018-10-31 18:15:06 +0900
+categories: clojure sicp
+---
+練習問題1.12です。
+Pascalの三角形ですね。
+
+再帰プロセス ちょっとださい
+
+{% highlight clojure %}
+(defn calc[v]
+  (if (> (count v) 1)
+    (cons (+ (first v) (second v)) (calc (next v)))
+    v))
+(defn nextRow[v]
+  (cons 1 (calc v)))
+(defn pascal[v]
+  (lazy-seq
+   (cons v
+         (pascal (nextRow v)))))
+(take 10 (pascal [1]))
+
+{% endhighlight %}
+
+反復プロセス iterateをつかったとき
+
+{% highlight clojure %}
+(defn nextRow[v]
+  (->> (partition 2 1 v)
+       (map #(+ (first %) (second %)))
+       (#(concat [1] % [1]))))
+(take 10 (iterate #(nextRow %) [1]))
+
+{% endhighlight %}
+
+再帰プロセス consをつかったとき
+
+{% highlight clojure %}
+(defn nextRow[v]
+  (->> (partition 2 1 v)
+       (map #(+ (first %) (second %)))
+       (#(concat [1] % [1]))))
+(defn pascal[v]
+  (lazy-seq
+   (cons v
+         (pascal (nextRow v)))))
+(take 10 (pascal [1]))
+{% endhighlight %}
+
