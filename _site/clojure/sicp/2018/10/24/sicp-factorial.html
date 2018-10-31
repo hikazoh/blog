@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>hikazoh&#39;s blog</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-">
+  <title>SICP Factorial</title>
+  <meta name="description" content="またまた階乗です。ヲレはこの手のコードはデフォルトiterate使って遅延シーケンスつくるです。">
 
   <link rel="stylesheet" href="/blog/css/main.css">
-  <link rel="canonical" href="https://hikazoh.github.io//blog/">
+  <link rel="canonical" href="https://hikazoh.github.io//blog/clojure/sicp/2018/10/24/sicp-factorial.html">
   <link rel="alternate" type="application/rss+xml" title="hikazoh's blog" href="https://hikazoh.github.io//blog/feed.xml">
 </head>
 
@@ -55,65 +54,36 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">SICP Factorial</h1>
+    <p class="post-meta"><time datetime="2018-10-24T08:31:06+09:00" itemprop="datePublished">Oct 24, 2018</time></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Oct 31, 2018</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>またまた階乗です。ヲレはこの手のコードはデフォルトiterate使って
+遅延シーケンスつくるです。</p>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/sicp/2018/10/31/sicp-1-12.html">SICP 1.12練習問題</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 31, 2018</span>
+<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="nb">take</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">(</span><span class="nb">iterate</span><span class="w"> </span><span class="p">(</span><span class="k">fn</span><span class="p">[[</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">]][(</span><span class="nb">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">inc</span><span class="w"> </span><span class="n">b</span><span class="p">)])</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">]))</span></code></pre></figure>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/sicp/2018/10/31/sicp-1-11.html">SICP 1.11練習問題</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 26, 2018</span>
+<p>Clojureだと末尾最適化が？なのではありますがコーンなコードでいかがでしょうか。</p>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/sicp/2018/10/26/sicp-change.html">SICP Small Change</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 24, 2018</span>
+<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">fact-iter</span><span class="w"> </span><span class="p">[</span><span class="n">product</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">max-count</span><span class="p">]</span><span class="w">
+  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">max-count</span><span class="p">)</span><span class="w">
+    </span><span class="n">product</span><span class="w">
+    </span><span class="p">(</span><span class="nf">recur</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">product</span><span class="p">)</span><span class="w">
+           </span><span class="p">(</span><span class="nb">inc</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="p">)</span><span class="w">
+           </span><span class="n">max-count</span><span class="p">))</span><span class="w">
+  </span><span class="p">)</span><span class="w">
+</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">factorial</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w">
+  </span><span class="p">(</span><span class="nf">fact-iter</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">n</span><span class="p">))</span><span class="w">
+</span><span class="p">(</span><span class="nf">factorial</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span></code></pre></figure>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/sicp/2018/10/24/sicp-factorial.html">SICP Factorial</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 23, 2018</span>
 
-        <h2>
-          <a class="post-link" href="/blog/jekyll/update/2018/10/23/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 23, 2018</span>
+  </div>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/2018/10/23/sicp-newton.html">SICP Newton</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/blog/feed.xml">via RSS</a></p>
-
-</div>
+</article>
 
       </div>
     </div>
