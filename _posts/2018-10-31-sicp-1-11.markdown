@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "SICP 1.11練習問題"
+date:   2018-10-31 12:31:06 +0900
+categories: clojure sicp
+---
+練習問題1.11です。
+
+再帰プロセス
+
+{% highlight clojure %}
+(defn f[n]
+  (if (< n 3)
+    n
+    (+ (f (dec n)) (* 2 (f (- n 2))) (* 3 (f (- n 3))))))
+(f 10)
+{% endhighlight %}
+
+反復プロセス
+
+{% highlight clojure %}
+
+(take 11 (concat '(0 1)(map #(last %) (iterate (fn[[a b c]]
+                    [b c (+ (* 3 a) (* 2 b) c)]) [0 1 2]))))
+
+{% endhighlight %}
