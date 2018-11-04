@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "Atcoderからtrampolineの実装"
+date:   2018-11-05 08:15:06 +0900
+categories: clojure atcoder
+---
+時間があるときにatcoderといています。
+clojureつかうととっても起動が遅いのかつらいですね。
+そのなかでtrampoline使える問題ありました。
+
+[github]でいれました。
+
+
+{% highlight clojure %}
+(defn card[cnt total lst]
+  (if lst
+    (if (even? cnt)
+      #(card (inc cnt) (+ total (first lst) ) (next lst))
+      #(card (inc cnt) (- total (first lst) ) (next lst))
+      )
+    total))
+(println (trampoline card 0 0 lst)))
+{% endhighlight %}
+
+[github]: https://github.com/hikazoh/abc088b
+
