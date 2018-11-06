@@ -1,0 +1,87 @@
+---
+layout: post
+title:  "Atcoderからtrampolineの実装"
+date:   2018-11-06 14:55:06 +0900
+categories: clojure atcoder
+---
+Travelingのコードがずっと時間切れで通りませんでした。
+
+
+最初はpartition使って楽に書きました。
+{% highlight clojure %}
+(defn abs[x]
+   (if (< x 0)
+        (- x)
+         x))
+(defn judge[[a  b c] [d e f]]
+  (let [t (- d a)
+        s (+ (abs (- e b)) (abs (- f c)))]
+   (if (zero? (mod t s))
+       true
+       false)))
+(def n (Integer/parseInt (read-line)))
+(def t (for [i (range 0 n)] 
+   (map #(Integer/parseInt %) (clojure.string/split (read-line) #"\s"))))
+(def t (concat '((0 0 0)) t))
+(if (some false? 
+            (map #(judge
+                   (first %)
+                   (second %))
+                   (partition 2 1 t)))
+          (println "No")
+          (println "Yes"))
+{% endhighlight %}
+
+partitionのところが遅いようなのでreduceでリストのシークを減らしました
+{% highlight clojure %}
+(defn abs[x]
+   (if (< x 0)
+        (- x)
+        x))
+(def flg (atom true))
+(defn judge[[a  b c] [d e f]]
+  (when @flg
+    (let [t (- d a)
+          s (+ (abs (- e b)) (abs (- f c)))]
+      (when (not (zero? (mod t s)))
+        (reset! flg false))))
+  [d e f])
+(def n (Integer/parseInt (read-line)))
+(def t (for [i (range 0 n)] 
+   (map #(Integer/parseInt %) (clojure.string/split (read-line) #"\s"))))
+(reduce #(judge %1 %2) '(0 0 0) t)
+(if @flg
+  (println "Yes")
+  (println "No"))
+{% endhighlight %}
+
+reduceよりloop/recurが早いのでこれに変えてなんとか通りましたとさ。
+{% highlight clojure %}
+(defn abs[x]
+   (if (< x 0)
+        (- x)
+        x))
+(def flg (atom true))
+(defn judge[[a  b c] [d e f]]
+  (when @flg
+    (let [t (- d a)
+          s (+ (abs (- e b)) (abs (- f c)))]
+      (when (not (zero? (mod t s)))
+        (reset! flg false)))))
+(def n (Integer/parseInt (read-line)))
+(def t (for [i (range 0 n)] 
+         (map #(Integer/parseInt %) (clojure.string/split (read-line) #"\s"))))
+(def t (concat '((0 0 0)) t))
+(loop [t1 t]
+  (when (and (next t1) @flg)
+    (do
+      (judge (first t1) (second t1))
+      (recur (next t1)))))
+(if @flg
+  (println "Yes")
+  (println "No"))
+{% endhighlight %}
+
+
+[github]: https://github.com/hikazoh/abc088b
+
