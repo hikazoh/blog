@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Atcoderからtrampolineの実装"
+title:  "AtcoderからTravelの実装"
 date:   2018-11-06 14:55:06 +0900
 categories: clojure atcoder
 ---
@@ -83,5 +83,5 @@ reduceよりloop/recurが早いのでこれに変えてなんとか通りまし�
 {% endhighlight %}
 
 
-[github]: https://github.com/hikazoh/abc088b
+[github]: https://github.com/hikazoh/abc086c
 
