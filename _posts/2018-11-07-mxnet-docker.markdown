@@ -6,7 +6,7 @@ categories: clojure mxnet docker
 ---
 お断り(disclaimer):もちろんこの手順は無保証です。
 以前すっげー頑張って自分の環境でつくったのではありますが、
-あとでDockerが[magnetcoop//mxnet-clj-cpu docker]あることに気づいてこっちに乗り換えました。
+あとでDockerが[magnetcoop/mxnet-clj-cpu docker]あることに気づいてこっちに乗り換えました。
 説明[magnet-coop/mxnet-clj-cpu]もあって楽です。Dockerはいいですなぁ。
 
 {% highlight shell %}
