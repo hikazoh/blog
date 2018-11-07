@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "SICP 1.12練習問題"
+title:  "SICP 1.12練習問題 をClojureでといてみた"
 date:   2018-10-31 18:15:06 +0900
 categories: clojure sicp
 ---
