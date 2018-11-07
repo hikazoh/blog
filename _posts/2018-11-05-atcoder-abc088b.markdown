@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Atcoderからtrampolineの実装"
+title:  "AtcoderからClojureでtrampolineの実装"
 date:   2018-11-05 08:15:06 +0900
 categories: clojure atcoder
 ---

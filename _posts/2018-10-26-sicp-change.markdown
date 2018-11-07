@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "SICP Small Change"
+title:  "SICP 両替の種類を得るためをClojureで実装してみた"
 date:   2018-10-26 12:31:06 +0900
 categories: clojure sicp
 ---

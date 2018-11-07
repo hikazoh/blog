@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "SICP Factorial"
+title:  "SICP FactorialをClojureで実装してみた"
 date:   2018-10-24 08:31:06 +0900
 categories: clojure sicp
 ---

@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "SICP Newton"
+title:  "SICP NewtonをClojureで実装する"
 date:   2018-10-23 09:31:06 +0900
 categories: clojure
 ---
