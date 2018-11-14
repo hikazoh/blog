@@ -6,7 +6,7 @@ categories: clojure mxnet docker
 tags: clojure mxnet docker
 ---
 お断り(disclaimer):もちろんこの手順は無保証です。
-参考というかこのblog[mxnet clojure]をなぞります。
+参考というかこの[blog][mxnet clojure]をなぞります。
 
 まずはincubator-mxnetをcloneします。
 {% highlight git %}
