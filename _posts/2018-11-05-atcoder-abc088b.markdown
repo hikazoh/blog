@@ -8,7 +8,7 @@ categories: clojure atcoder
 clojureつかうととっても起動が遅いのかつらいですね。
 そのなかでtrampoline使える問題ありました。
 
-[github]でいれました。
+[ここ][github]でいれました。
 
 
 {% highlight clojure %}
