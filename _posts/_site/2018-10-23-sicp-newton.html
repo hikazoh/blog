@@ -1,0 +1,10 @@
+<p>忙中閑ありな感じでSICPをまたまた読んでいます。
+Clojureでコード書いてみます。</p>
+
+<p>まずはニュートン法による平方根です。</p>
+
+<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">sqrt-itr</span><span class="p">[</span><span class="n">guess</span><span class="w"> </span><span class="n">x</span><span class="p">]</span><span class="w">
+  </span><span class="p">(</span><span class="nf">lazy-seq</span><span class="w">
+   </span><span class="p">(</span><span class="nb">cons</span><span class="w"> </span><span class="n">guess</span><span class="w">
+         </span><span class="p">(</span><span class="nf">sqrt-itr</span><span class="w"> </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="n">guess</span><span class="w"> </span><span class="p">(</span><span class="nb">/</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="n">guess</span><span class="p">))</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="n">x</span><span class="p">))))</span></code></pre></figure>
+

@@ -66,5 +66,13 @@ exit(0)
 
 {% endhighlight %}
 
+実行結果
+>"TEST
+3.1622776601683795
+Nil No2
+abc
+nil
+Nil No4"
+
 [github]: https://github.com/hikazoh/swift_study
 

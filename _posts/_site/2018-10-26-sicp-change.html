@@ -1,0 +1,27 @@
+<p>1$を1¢ 5¢ 10¢ 25¢ 50¢で何種類両替できるかです。
+これも再帰でできちゃうんですよね。このあたりから？？的な度合いが高くなる。</p>
+
+<p>まずは写経から。</p>
+
+<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="nf">declare</span><span class="w"> </span><span class="n">cc</span><span class="p">)</span><span class="w">
+</span><span class="p">(</span><span class="nf">declare</span><span class="w"> </span><span class="n">first-denomination</span><span class="p">)</span><span class="w">
+</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">count-change</span><span class="p">[</span><span class="n">amount</span><span class="p">]</span><span class="w">
+  </span><span class="p">(</span><span class="nf">cc</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="mi">5</span><span class="p">))</span><span class="w">
+</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">cc</span><span class="p">[</span><span class="n">amount</span><span class="w"> </span><span class="n">kinds-of-coins</span><span class="p">]</span><span class="w">
+  </span><span class="p">(</span><span class="k">cond</span><span class="w">
+    </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w">
+    </span><span class="p">(</span><span class="nb">or</span><span class="w"> </span><span class="p">(</span><span class="nb">&lt;</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">zero?</span><span class="w"> </span><span class="n">kinds-of-coins</span><span class="p">))</span><span class="w"> </span><span class="mi">0</span><span class="w">
+     </span><span class="no">:else</span><span class="w">
+     </span><span class="p">(</span><span class="nb">+</span><span class="w"> </span><span class="p">(</span><span class="nf">cc</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="p">(</span><span class="nb">dec</span><span class="w"> </span><span class="n">kinds-of-coins</span><span class="p">))</span><span class="w">
+        </span><span class="p">(</span><span class="nf">cc</span><span class="w"> </span><span class="p">(</span><span class="nb">-</span><span class="w"> </span><span class="n">amount</span><span class="w">
+               </span><span class="p">(</span><span class="nf">first-denomination</span><span class="w">
+                </span><span class="n">kinds-of-coins</span><span class="p">))</span><span class="w">
+            </span><span class="n">kinds-of-coins</span><span class="p">))))</span><span class="w">
+</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">first-denomination</span><span class="w"> </span><span class="p">[</span><span class="n">kinds-of-coins</span><span class="p">]</span><span class="w">
+  </span><span class="p">(</span><span class="k">cond</span><span class="w"> </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">kinds-of-coins</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">kinds-of-coins</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="mi">5</span><span class="w">
+        </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">kinds-of-coins</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="mi">10</span><span class="w">
+        </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">kinds-of-coins</span><span class="w"> </span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="mi">25</span><span class="w">
+        </span><span class="p">(</span><span class="nb">=</span><span class="w"> </span><span class="n">kinds-of-coins</span><span class="w"> </span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="mi">50</span><span class="p">))</span><span class="w">
+</span><span class="p">(</span><span class="nf">count-change</span><span class="w"> </span><span class="mi">100</span><span class="p">)</span></code></pre></figure>
+
