@@ -4,7 +4,7 @@ title:  "Metabaseのお勉強"
 date:   2018-11-21 19:00:06 +0900
 categories: swift
 ---
-Clojureのキラーアプリとして[Metabase][metabase]があったので
+Clojureのキラーアプリ候補として[Metabase][metabase]があったので
 実験しています。
 [ここ][metabase download]からmetabase.jarをダウンロードします。
 コマンドラインから
@@ -21,6 +21,7 @@ Postgresqlに移行します。
 
 [移行ページ][metabase migration]にあります。
 
+事前にPostgreSQLにmetabaseでCREATE DATABASEしておきます。
 
 マイグレイションShell
 ~~~
@@ -33,7 +34,7 @@ export MB_DB_HOST=localhost
 java -jar metabase.jar load-from-h2 /path/to/metabase.db #  .mv.db や .h2.db なサフィックスは不要です。ディレクトリ/metabase.dbでOK
 ~~~
 
-実行Shell
+Metabase起動shell
 ~~~
 export MB_DB_TYPE=postgres
 export MB_DB_DBNAME=metabase
