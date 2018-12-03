@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Swiftのお勉強"
+title:  "Metabaseのお勉強"
 date:   2018-11-21 19:00:06 +0900
 categories: swift
 ---
