@@ -2,7 +2,7 @@
 layout: post
 title:  "Metabaseのお勉強"
 date:   2018-12-03 10:00:06 +0900
-categories: swift
+categories: clojure metabase bi
 ---
 Clojureのキラーアプリ候補として[Metabase][metabase]があったので
 実験しています。
