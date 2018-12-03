@@ -49,4 +49,4 @@ java -jar metabase.jar
 [metabase runtime]:http://localhost:3000/
 [metabase]:https://www.metabase.com/
 [metabase download]:https://www.metabase.com/start/jar.html
-[metabaes migration]:https://www.metabase.com/docs/v0.29.2/operations-guide/start.html#configuring-the-metabase-application-database
+[metabase migration]:https://www.metabase.com/docs/v0.29.2/operations-guide/start.html#configuring-the-metabase-application-database
