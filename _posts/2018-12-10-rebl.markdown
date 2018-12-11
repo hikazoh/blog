@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "REBL"
+date:   2018-12-10 10:00:06 +0900
+categories: clojure 
+---
+[Clojure/conj][Clojure/conj]で新しいREPLが出ました。
+ちょっとお試ししています。
+環境はlubuntu使っています。
+cljを使うのでWindowsだと自力でなんとかするのかな。
+[ここ][REBL download]から落としてきてzipを展開します。
+
+~~~
+clj -R:rebl -m cognitect.rebl
+~~~
+これで![REBL](/blog/images/REBL.JPG)で簡単に表示できます。
+
+[Clojure/conj]: https://2018.clojure-conj.org/
+[REBL]: https://rebl.cognitect.com/
+[REBL download]: https://rebl.cognitect.com/download
+

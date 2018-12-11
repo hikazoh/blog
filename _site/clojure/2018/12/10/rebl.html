@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Swiftのお勉強</title>
-  <meta name="description" content="ClojureのキラーアプリとしてMetabaseがあったので実験しています。ここからmetabase.jarをダウンロードします。コマンドラインからjava -jar metabase.jarで動かします。Browserからここでアクセスできます。あら簡単！">
+  <title>REBL</title>
+  <meta name="description" content="Clojure/conjで新しいREPLが出ました。ちょっとお試ししています。環境はlubuntu使っています。cljを使うのでWindowsだと自力でなんとかするのかな。ここから落としてきてzipを展開します。">
 
   <link rel="stylesheet" href="/blog/css/main.css">
-  <link rel="canonical" href="https://hikazoh.github.io//blog/swift/2018/11/21/metabase-postgres.html">
+  <link rel="canonical" href="https://hikazoh.github.io//blog/clojure/2018/12/10/rebl.html">
   <link rel="alternate" type="application/rss+xml" title="hikazoh's blog" href="https://hikazoh.github.io//blog/feed.xml">
 </head>
 
@@ -57,48 +57,20 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">Swiftのお勉強</h1>
-    <p class="post-meta"><time datetime="2018-11-21T19:00:06+09:00" itemprop="datePublished">Nov 21, 2018</time></p>
+    <h1 class="post-title" itemprop="name headline">REBL</h1>
+    <p class="post-meta"><time datetime="2018-12-10T10:00:06+09:00" itemprop="datePublished">Dec 10, 2018</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>Clojureのキラーアプリとして<a href="https://www.metabase.com/">Metabase</a>があったので
-実験しています。
-<a href="https://www.metabase.com/start/jar.html">ここ</a>からmetabase.jarをダウンロードします。
-コマンドラインから</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -jar metabase.jar
+    <p><a href="https://2018.clojure-conj.org/">Clojure/conj</a>で新しいREPLが出ました。
+ちょっとお試ししています。
+環境はlubuntu使っています。
+cljを使うのでWindowsだと自力でなんとかするのかな。
+<a href="https://rebl.cognitect.com/download">ここ</a>から落としてきてzipを展開します。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clj -R:rebl -m cognitect.rebl
 </code></pre></div></div>
-<p>で動かします。
-Browserから<a href="http://localhost:3000/">ここ</a>でアクセスできます。
-あら簡単！</p>
-
-<p>ただデフォルトがh2のデータベースなんですよね。
-流石にこれではバックアップやら何やらで辛いので
-Postgresqlに移行します。</p>
-
-<p>[移行ページ][metabase migration]にあります。</p>
-
-<p>マイグレイションShell</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export MB_DB_TYPE=postgres
-export MB_DB_DBNAME=metabase
-export MB_DB_PORT=5432
-export MB_DB_USER=&lt;username&gt;
-export MB_DB_PASS=&lt;password&gt;
-export MB_DB_HOST=localhost
-java -jar metabase.jar load-from-h2 /path/to/metabase.db #  .mv.db や .h2.db なサフィックスは不要です。ディレクトリ/metabase.dbでOK
-</code></pre></div></div>
-
-<p>実行Shell</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export MB_DB_TYPE=postgres
-export MB_DB_DBNAME=metabase
-export MB_DB_PORT=5432
-export MB_DB_USER=&lt;username&gt;
-export MB_DB_PASS=&lt;password&gt;
-export MB_DB_HOST=localhost
-java -jar metabase.jar 
-</code></pre></div></div>
-
-<p>これで簡単に動きました。こりゃええわぁ</p>
+<p>これで<img src="/blog/images/REBL.JPG" alt="REBL" />で簡単に表示できます。</p>
 
 
   </div>

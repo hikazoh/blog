@@ -6,13 +6,35 @@
 </description>
     <link>https://hikazoh.github.io//blog/</link>
     <atom:link href="https://hikazoh.github.io//blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 03 Dec 2018 10:22:39 +0900</pubDate>
-    <lastBuildDate>Mon, 03 Dec 2018 10:22:39 +0900</lastBuildDate>
+    <pubDate>Tue, 11 Dec 2018 13:40:44 +0900</pubDate>
+    <lastBuildDate>Tue, 11 Dec 2018 13:40:44 +0900</lastBuildDate>
     <generator>Jekyll v3.1.6</generator>
     
       <item>
-        <title>Swiftのお勉強</title>
-        <description>&lt;p&gt;Clojureのキラーアプリとして&lt;a href=&quot;https://www.metabase.com/&quot;&gt;Metabase&lt;/a&gt;があったので
+        <title>REBL</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://2018.clojure-conj.org/&quot;&gt;Clojure/conj&lt;/a&gt;で新しいREPLが出ました。
+ちょっとお試ししています。
+環境はlubuntu使っています。
+cljを使うのでWindowsだと自力でなんとかするのかな。
+&lt;a href=&quot;https://rebl.cognitect.com/download&quot;&gt;ここ&lt;/a&gt;から落としてきてzipを展開します。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;clj -R:rebl -m cognitect.rebl
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;これで&lt;img src=&quot;/blog/images/REBL.JPG&quot; alt=&quot;REBL&quot; /&gt;で簡単に表示できます。&lt;/p&gt;
+
+</description>
+        <pubDate>Mon, 10 Dec 2018 10:00:06 +0900</pubDate>
+        <link>https://hikazoh.github.io//blog/clojure/2018/12/10/rebl.html</link>
+        <guid isPermaLink="true">https://hikazoh.github.io//blog/clojure/2018/12/10/rebl.html</guid>
+        
+        
+        <category>clojure</category>
+        
+      </item>
+    
+      <item>
+        <title>Metabaseのお勉強</title>
+        <description>&lt;p&gt;Clojureのキラーアプリ候補として&lt;a href=&quot;https://www.metabase.com/&quot;&gt;Metabase&lt;/a&gt;があったので
 実験しています。
 &lt;a href=&quot;https://www.metabase.com/start/jar.html&quot;&gt;ここ&lt;/a&gt;からmetabase.jarをダウンロードします。
 コマンドラインから&lt;/p&gt;
@@ -26,7 +48,9 @@ Browserから&lt;a href=&quot;http://localhost:3000/&quot;&gt;ここ&lt;/a&gt;�
 流石にこれではバックアップやら何やらで辛いので
 Postgresqlに移行します。&lt;/p&gt;
 
-&lt;p&gt;[移行ページ][metabase migration]にあります。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.metabase.com/docs/v0.29.2/operations-guide/start.html#configuring-the-metabase-application-database&quot;&gt;移行ページ&lt;/a&gt;にあります。&lt;/p&gt;
+
+&lt;p&gt;事前にPostgreSQLにmetabaseでCREATE DATABASEしておきます。&lt;/p&gt;
 
 &lt;p&gt;マイグレイションShell&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export MB_DB_TYPE=postgres
@@ -38,7 +62,7 @@ export MB_DB_HOST=localhost
 java -jar metabase.jar load-from-h2 /path/to/metabase.db #  .mv.db や .h2.db なサフィックスは不要です。ディレクトリ/metabase.dbでOK
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;実行Shell&lt;/p&gt;
+&lt;p&gt;Metabase起動shell&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export MB_DB_TYPE=postgres
 export MB_DB_DBNAME=metabase
 export MB_DB_PORT=5432
@@ -51,12 +75,16 @@ java -jar metabase.jar
 &lt;p&gt;これで簡単に動きました。こりゃええわぁ&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 21 Nov 2018 19:00:06 +0900</pubDate>
-        <link>https://hikazoh.github.io//blog/swift/2018/11/21/metabase-postgres.html</link>
-        <guid isPermaLink="true">https://hikazoh.github.io//blog/swift/2018/11/21/metabase-postgres.html</guid>
+        <pubDate>Mon, 03 Dec 2018 10:00:06 +0900</pubDate>
+        <link>https://hikazoh.github.io//blog/clojure/metabase/bi/2018/12/03/metabase-postgres.html</link>
+        <guid isPermaLink="true">https://hikazoh.github.io//blog/clojure/metabase/bi/2018/12/03/metabase-postgres.html</guid>
         
         
-        <category>swift</category>
+        <category>clojure</category>
+        
+        <category>metabase</category>
+        
+        <category>bi</category>
         
       </item>
     
@@ -482,38 +510,6 @@ Pascalの三角形ですね。&lt;/p&gt;
         <pubDate>Fri, 26 Oct 2018 12:31:06 +0900</pubDate>
         <link>https://hikazoh.github.io//blog/clojure/sicp/2018/10/26/sicp-change.html</link>
         <guid isPermaLink="true">https://hikazoh.github.io//blog/clojure/sicp/2018/10/26/sicp-change.html</guid>
-        
-        
-        <category>clojure</category>
-        
-        <category>sicp</category>
-        
-      </item>
-    
-      <item>
-        <title>SICP FactorialをClojureで実装してみた</title>
-        <description>&lt;p&gt;またまた階乗です。ヲレはこの手のコードはデフォルトiterate使って
-遅延シーケンスつくるです。&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;take&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;iterate&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]][(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;inc&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)])&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-&lt;p&gt;Clojureだと末尾最適化が？なのではありますがコーンなコードでいかがでしょうか。&lt;/p&gt;
-
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-clojure&quot; data-lang=&quot;clojure&quot;&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;defn&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;fact-iter&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;recur&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;product&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-           &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;inc&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-           &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max-count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;defn&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-  &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;fact-iter&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;n&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;factorial&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
-
-</description>
-        <pubDate>Wed, 24 Oct 2018 08:31:06 +0900</pubDate>
-        <link>https://hikazoh.github.io//blog/clojure/sicp/2018/10/24/sicp-factorial.html</link>
-        <guid isPermaLink="true">https://hikazoh.github.io//blog/clojure/sicp/2018/10/24/sicp-factorial.html</guid>
         
         
         <category>clojure</category>
