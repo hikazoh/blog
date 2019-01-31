@@ -6,9 +6,9 @@ categories: clojure mxnet
 ---
 お断り(disclaimer):もちろんこの手順は無保証です。
 [以前][blog self article]すっげー頑張って自分の環境でつくったのです。
-あとで[Docker][blog docker artile]でも環境を作ってサンプルを動かしました。
-[Carin Meier][gigasquid]さんが[deps.edn][mxnet article]でHello Worldできる
-って記事を投稿なさいました。
+あとで[Docker][blog docker article]でも環境を作ってサンプルを動かしました。
+[Carin Meier][gigasquid]さんがdeps.ednでcljからHello Worldできる
+って[記事][mxnet article]を投稿なさいました。
 あぁ、これが簡単です。自分で作った環境すててこっちに移行してます。
 
 ~~~
