@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "Apache MXNETをcljから使う。"
+date:   2019-01-31 09:00:00 +0900
+categories: clojure mxnet
+---
+お断り(disclaimer):もちろんこの手順は無保証です。
+[以前][blog self article]すっげー頑張って自分の環境でつくったのです。
+あとで[Docker][blog docker artile]でも環境を作ってサンプルを動かしました。
+[Carin Meier][gigasquid]さんが[deps.edn][mxnet article]でHello Worldできる
+って記事を投稿なさいました。
+あぁ、これが簡単です。自分で作った環境すててこっちに移行してます。
+
+~~~
+{org.clojure/clojure {:mvn/version "1.10.0"}
+~~~
+にしたくらいかな。
+
+[mxnet article]: https://nextjournal.com/gigasquid/clojure-mxnet-introduction
+[blog self article]: https://hikazoh.github.io/blog/clojure/mxnet/docker/2018/11/07/mxnet-docker.html
+[blog docker article]: https://hikazoh.github.io/blog/clojure/mxnet/docker/2018/11/07/mxnet-clojure.html
+[gigasquid]: http://gigasquidsoftware.com/
