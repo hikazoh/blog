@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>hikazoh&#39;s blog</title>
-  <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
-">
+  <title>Clojure CLIでGraalVMなモジュールをつくる</title>
+  <meta name="description" content="お断り(disclaimer):もちろんこの手順は無保証です。">
 
   <link rel="stylesheet" href="/blog/css/main.css">
-  <link rel="canonical" href="https://hikazoh.github.io//blog/">
+  <link rel="canonical" href="https://hikazoh.github.io//blog/clojure/graalvm/2019/03/19/graalvm-clojure.html">
   <link rel="alternate" type="application/rss+xml" title="hikazoh's blog" href="https://hikazoh.github.io//blog/feed.xml">
 </head>
 
@@ -55,137 +54,73 @@
 
     <div class="page-content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <h1 class="page-heading">Posts</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">Clojure CLIでGraalVMなモジュールをつくる</h1>
+    <p class="post-meta"><time datetime="2019-03-19T09:00:00+09:00" itemprop="datePublished">Mar 19, 2019</time></p>
+  </header>
 
-  <ul class="post-list">
-    
-      <li>
-        <span class="post-meta">Mar 19, 2019</span>
+  <div class="post-content" itemprop="articleBody">
+    <p>お断り(disclaimer):もちろんこの手順は無保証です。</p>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/graalvm/2019/03/19/graalvm-clojure.html">Clojure CLIでGraalVMなモジュールをつくる</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Jan 31, 2019</span>
+<p>Clojureの起動の遅さをどーすっかなぁって思って調べると、<a href="https://www.graalvm.org/">GraalVM</a>ってのがあって気になっておりました。
+あれこれ調べてみると<a href="https://github.com/taylorwood/clj.native-image">Build GraalVM native images with Clojure Deps and CLI tools </a>ってのが楽そうなので試してみました。
+ふつーにREADMEに従ってやってみたのですが、GraalVMのbinaryにPATHを通した
+だけではだめっぽくって環境変数も設定しました。</p>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/mxnet/2019/01/31/mxnet-clj.html">Apache MXNETをcljから使う。</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 10, 2018</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export GRAALVM_HOME=${INSTALLED_DIR}
+export PATH=${PATH}:${GRAALVM_HOME}/bin
+</code></pre></div></div>
+<p>Clojure CLIつかうので構成は下記の通り。classesがあるのはご愛嬌です。
+gitの使い方がまだ下手なだけです。</p>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/2018/12/10/rebl.html">REBL</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Dec 3, 2018</span>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.
+├── README.md
+├── classes
+│   ├── core$_main.class
+│   ├── core$fn__852.class
+│   ├── core$loading__6706__auto____850.class
+│   ├── core.class
+│   └── core__init.class
+├── deps.edn
+└── src
+    └── core.clj
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/metabase/bi/2018/12/03/metabase-postgres.html">Metabaseのお勉強</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 21, 2018</span>
+2 directories, 8 files
 
-        <h2>
-          <a class="post-link" href="/blog/swift/2018/11/21/swift-main.html">Swiftのお勉強</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 7, 2018</span>
+</code></pre></div></div>
+<p>Clojureのソースは</p>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/mxnet/docker/2018/11/07/mxnet-clojure.html">Apache MXNETをClojureで使える環境を作る</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 7, 2018</span>
+<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="nf">ns</span><span class="w"> </span><span class="n">core</span><span class="w">
+  </span><span class="p">(</span><span class="no">:gen-class</span><span class="p">))</span><span class="w">
+</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">-main</span><span class="p">[</span><span class="o">&amp;</span><span class="w"> </span><span class="n">args</span><span class="p">]</span><span class="w">
+</span><span class="p">(</span><span class="nb">println</span><span class="w"> </span><span class="s">"Hello, World!"</span><span class="p">))</span></code></pre></figure>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/mxnet/docker/2018/11/07/mxnet-docker.html">Apache MXNETをClojureから使う。Docker版</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 6, 2018</span>
+<p>です。大したことやっていません。</p>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/atcoder/2018/11/06/atcoder-abc086c.html">AtcoderからTravelingのClojure実装</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Nov 5, 2018</span>
+<p>deps.ednはコーンな感じ</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{:deps {org.clojure/clojure {:mvn/version "1.10.0"}}
+ :aliases {:native-image
+           {:main-opts ["-m clj.native-image core"]
+            :extra-deps
+            {clj.native-image
+             {:git/url "https://github.com/taylorwood/clj.native-image.git"
+              :sha "498baa963e914fd817dbf33ea251729efd0c8f95"}}}}
+  :jvm-opts ["-Dclojure.compiler.direct-linkng-true"]
+}
+</code></pre></div></div>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/atcoder/2018/11/05/atcoder-abc088b.html">AtcoderからClojureでtrampolineの実装</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 31, 2018</span>
+<p>これでCLIから</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>clj -A:native-image
+</code></pre></div></div>
+<p>でうちこむと実行モジュールができちゃいます。
+こりゃええわぁ。</p>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/sicp/2018/10/31/sicp-1-12.html">SICP 1.12練習問題 をClojureでといてみた</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 31, 2018</span>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/sicp/2018/10/31/sicp-1-11.html">SICP 1.11練習問題 をClojureでといてみた</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 26, 2018</span>
+  </div>
 
-        <h2>
-          <a class="post-link" href="/blog/clojure/sicp/2018/10/26/sicp-change.html">SICP 両替の種類を得るためをClojureで実装してみた</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 24, 2018</span>
-
-        <h2>
-          <a class="post-link" href="/blog/clojure/sicp/2018/10/24/sicp-factorial.html">SICP FactorialをClojureで実装してみた</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 23, 2018</span>
-
-        <h2>
-          <a class="post-link" href="/blog/jekyll/update/2018/10/23/welcome-to-jekyll.html">Welcome to Jekyll!</a>
-        </h2>
-      </li>
-    
-      <li>
-        <span class="post-meta">Oct 23, 2018</span>
-
-        <h2>
-          <a class="post-link" href="/blog/clojure/2018/10/23/sicp-newton.html">SICP NewtonをClojureで実装する</a>
-        </h2>
-      </li>
-    
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="/blog/feed.xml">via RSS</a></p>
-
-</div>
+</article>
 
       </div>
     </div>
