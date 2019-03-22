@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Clojure CLIでGraalVMなモジュールをつくる"
+title:  "Clojure CLIでUberjarやTestやGraalVMをやってみた"
 date:   2019-03-22 09:00:00 +0900
 categories: clojure graalvm tools-deps
 ---
