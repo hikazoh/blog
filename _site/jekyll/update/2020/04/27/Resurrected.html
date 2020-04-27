@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>SICP FactorialをClojureで実装してみた</title>
-  <meta name="description" content="またまた階乗です。ヲレはこの手のコードはデフォルトiterate使って遅延シーケンスつくるです。">
+  <title>復活</title>
+  <meta name="description" content="ようやく復活">
 
   <link rel="stylesheet" href="/blog/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/blog/clojure/sicp/2018/10/24/sicp-factorial.html">
+  <link rel="canonical" href="http://localhost:4000/blog/jekyll/update/2020/04/27/Resurrected.html">
   <link rel="alternate" type="application/rss+xml" title="hikazoh's blog" href="http://localhost:4000/blog/feed.xml">
 </head>
 
@@ -57,29 +57,12 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">SICP FactorialをClojureで実装してみた</h1>
-    <p class="post-meta"><time datetime="2018-10-24T08:31:06+09:00" itemprop="datePublished">Oct 24, 2018</time></p>
+    <h1 class="post-title" itemprop="name headline">復活</h1>
+    <p class="post-meta"><time datetime="2020-04-27T13:31:06+09:00" itemprop="datePublished">Apr 27, 2020</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>またまた階乗です。ヲレはこの手のコードはデフォルトiterate使って
-遅延シーケンスつくるです。</p>
-
-<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="nb">take</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">(</span><span class="nb">iterate</span><span class="w"> </span><span class="p">(</span><span class="k">fn</span><span class="p">[[</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">]][(</span><span class="nb">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">inc</span><span class="w"> </span><span class="n">b</span><span class="p">)])</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">]))</span></code></pre></figure>
-
-<p>Clojureだと末尾最適化が？なのではありますがコーンなコードでいかがでしょうか。</p>
-
-<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">fact-iter</span><span class="w"> </span><span class="p">[</span><span class="n">product</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">max-count</span><span class="p">]</span><span class="w">
-  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">max-count</span><span class="p">)</span><span class="w">
-    </span><span class="n">product</span><span class="w">
-    </span><span class="p">(</span><span class="nf">recur</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">product</span><span class="p">)</span><span class="w">
-           </span><span class="p">(</span><span class="nb">inc</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="p">)</span><span class="w">
-           </span><span class="n">max-count</span><span class="p">))</span><span class="w">
-  </span><span class="p">)</span><span class="w">
-</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">factorial</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w">
-  </span><span class="p">(</span><span class="nf">fact-iter</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">n</span><span class="p">))</span><span class="w">
-</span><span class="p">(</span><span class="nf">factorial</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span></code></pre></figure>
-
+    <p>ようやく復活</p>
 
   </div>
 

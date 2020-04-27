@@ -10,8 +10,8 @@
   <meta name="description" content="お断り(disclaimer):もちろんこの手順は無保証です。参考というかこのblogをなぞります。">
 
   <link rel="stylesheet" href="/blog/css/main.css">
-  <link rel="canonical" href="https://hikazoh.github.io//blog/clojure/mxnet/docker/2018/11/07/mxnet-clojure.html">
-  <link rel="alternate" type="application/rss+xml" title="hikazoh's blog" href="https://hikazoh.github.io//blog/feed.xml">
+  <link rel="canonical" href="http://localhost:4000/blog/clojure/mxnet/docker/2018/11/07/mxnet-clojure.html">
+  <link rel="alternate" type="application/rss+xml" title="hikazoh's blog" href="http://localhost:4000/blog/feed.xml">
 </head>
 
 
@@ -77,8 +77,8 @@
 
 <figure class="highlight"><pre><code class="language-diff" data-lang="diff"><span class="gd">--- a/Makefile
 </span><span class="gi">+++ b/Makefile
-</span><span class="gu">@@ -76,7 +76,7 @@ include $(DMLC_CORE)/make/dmlc.mk
-</span> 
+</span><span class="p">@@ -76,7 +76,7 @@</span> include $(DMLC_CORE)/make/dmlc.mk
+ 
  # all tge possible warning tread
  WARNFLAGS= -Wall -Wsign-compare
 <span class="gd">-CFLAGS = -DMSHADOW_FORCE_STREAM $(WARNFLAGS)
@@ -105,7 +105,7 @@
 
 <p>やるとエラー吐くですよねぇ。 そこでエラーメッセージを調べてみるとどーもscalaとjdk10の相性の問題っぽいっことのように気が付きました 面倒なのでjdk10→jdk8へ変えて再度コンパイルしました。 無事成功したのでインストールもしておきます。 結果、↓のjarを採用します。</p>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="err">$</span><span class="o">{</span><span class="n">INSTALLED_DIRECTORY</span><span class="o">}</span><span class="n">scala</span><span class="o">-</span><span class="kn">package</span><span class="o">/</span><span class="n">assembly</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">cpu</span><span class="o">/</span><span class="n">target</span><span class="o">/</span><span class="n">mxnet</span><span class="o">-</span><span class="n">full_2</span><span class="o">.</span><span class="mi">11</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">cpu</span><span class="o">-</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">SNAPSHOT</span><span class="o">.</span><span class="na">jar</span></code></pre></figure>
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="err">$</span><span class="o">{</span><span class="no">INSTALLED_DIRECTORY</span><span class="o">}</span><span class="n">scala</span><span class="o">-</span><span class="kn">package</span><span class="err">/</span><span class="nn">assembly</span><span class="o">/</span><span class="n">linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">cpu</span><span class="o">/</span><span class="n">target</span><span class="o">/</span><span class="n">mxnet</span><span class="o">-</span><span class="n">full_2</span><span class="o">.</span><span class="mi">11</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="n">cpu</span><span class="o">-</span><span class="mf">1.3</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="no">SNAPSHOT</span><span class="o">.</span><span class="na">jar</span></code></pre></figure>
 
 <p>この時点で漸くclojureのlibraryをcompileできます。</p>
 

@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>SICP FactorialをClojureで実装してみた</title>
-  <meta name="description" content="またまた階乗です。ヲレはこの手のコードはデフォルトiterate使って遅延シーケンスつくるです。">
+  <title>ClojureとApache MXNETのndarrayでゼロから作るDeepLearningを実装中</title>
+  <meta name="description" content="お断り(disclaimer):もちろんこの手順は無保証です。ゼロから作るDeepLearningでDeepLearningを勉強してます。カマイルカさんがcore.matrixで実装なさっているので、当方はmxnet clojureでの実装を試みました。そもそもApache MXNET自体がDeepLearni...">
 
   <link rel="stylesheet" href="/blog/css/main.css">
-  <link rel="canonical" href="http://localhost:4000/blog/clojure/sicp/2018/10/24/sicp-factorial.html">
+  <link rel="canonical" href="http://localhost:4000/blog/clojure/mxnet/deeplearning/2019/05/29/zerodeeplearning-clojure.html">
   <link rel="alternate" type="application/rss+xml" title="hikazoh's blog" href="http://localhost:4000/blog/feed.xml">
 </head>
 
@@ -57,28 +57,22 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">SICP FactorialをClojureで実装してみた</h1>
-    <p class="post-meta"><time datetime="2018-10-24T08:31:06+09:00" itemprop="datePublished">Oct 24, 2018</time></p>
+    <h1 class="post-title" itemprop="name headline">ClojureとApache MXNETのndarrayでゼロから作るDeepLearningを実装中</h1>
+    <p class="post-meta"><time datetime="2019-05-29T09:00:00+09:00" itemprop="datePublished">May 29, 2019</time></p>
   </header>
 
   <div class="post-content" itemprop="articleBody">
-    <p>またまた階乗です。ヲレはこの手のコードはデフォルトiterate使って
-遅延シーケンスつくるです。</p>
-
-<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="nb">take</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="p">(</span><span class="nb">iterate</span><span class="w"> </span><span class="p">(</span><span class="k">fn</span><span class="p">[[</span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">]][(</span><span class="nb">*</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">b</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nb">inc</span><span class="w"> </span><span class="n">b</span><span class="p">)])</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="w"> </span><span class="mi">2</span><span class="p">]))</span></code></pre></figure>
-
-<p>Clojureだと末尾最適化が？なのではありますがコーンなコードでいかがでしょうか。</p>
-
-<figure class="highlight"><pre><code class="language-clojure" data-lang="clojure"><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">fact-iter</span><span class="w"> </span><span class="p">[</span><span class="n">product</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">max-count</span><span class="p">]</span><span class="w">
-  </span><span class="p">(</span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">&gt;</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">max-count</span><span class="p">)</span><span class="w">
-    </span><span class="n">product</span><span class="w">
-    </span><span class="p">(</span><span class="nf">recur</span><span class="w"> </span><span class="p">(</span><span class="nb">*</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">product</span><span class="p">)</span><span class="w">
-           </span><span class="p">(</span><span class="nb">inc</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="p">)</span><span class="w">
-           </span><span class="n">max-count</span><span class="p">))</span><span class="w">
-  </span><span class="p">)</span><span class="w">
-</span><span class="p">(</span><span class="k">defn</span><span class="w"> </span><span class="n">factorial</span><span class="w"> </span><span class="p">[</span><span class="n">n</span><span class="p">]</span><span class="w">
-  </span><span class="p">(</span><span class="nf">fact-iter</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">n</span><span class="p">))</span><span class="w">
-</span><span class="p">(</span><span class="nf">factorial</span><span class="w"> </span><span class="mi">6</span><span class="p">)</span></code></pre></figure>
+    <p>お断り(disclaimer):もちろんこの手順は無保証です。
+<a href="http://amzn.to/2i2d4Up">ゼロから作るDeepLearning</a>でDeepLearningを勉強してます。
+<a href="https://scrapbox.io/lagenorhynque/Clojure%E3%81%A7%E3%80%8E%E3%82%BC%E3%83%AD%E3%81%8B%E3%82%89%E4%BD%9C%E3%82%8BDeep_Learning%E3%80%8F%E5%AD%A6%E7%BF%92%E3%83%A1%E3%83%A2">カマイルカ</a>さんが<a href="https://github.com/mikera/core.matrix">core.matrix</a>で実装なさっているので、
+当方は<a href="https://mxnet.incubator.apache.org/api/clojure/index.html">mxnet clojure</a>での実装を試みました。
+そもそもApache MXNET自体がDeepLearningの実装なのですが、その使い方を
+学ぶ上で車輪の再発明でもいいかぁって思った次第です。
+まだ２章のAND・OR・XORで力尽きたのであとで書きます。
+かーんたんなソースはここに載せました。
+<a href="https://github.com/hikazoh/ZeroDeepLearning">MXNET Clojure</a>です。
+これ全部実装するのはしんどいので今後はClojureでMXNETを使ったDeepLearningに
+関して何か記すことができればと思いながら仕事に追われています。</p>
 
 
   </div>
