@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "ClojureとApache MXNETのndarrayでゼロから作るDeepLearningを実装中"
-date:   2019-05-29 09:00:00 +0900
+title:  "KotlinでAndroidの実装実験です。ViewModel使ってCoroutineのテスト"
+date:   2020-05-21 09:00:00 +0900
 categories: android kotlin
 ---
 お断り(disclaimer):もちろんこの手順は無保証です。
