@@ -86,4 +86,4 @@ onCreateでViewModelを配置して値のObserveとButtonのClick処理を入れ
 [KotlinBook]: https://amzn.to/2LM5mxc
 [github]: https://github.com/hikazoh/KotlinCoroutine
 [layout]: https://github.com/hikazoh/KotlinCoroutine/blob/master/app/src/main/res/layout/activity_main.xml
-[src]: https://github.com/hikazoh/KotlinCoroutine/blog/master/app/src/main/java/com/example/coroutine/MainActivity.kt
+[src]: https://github.com/hikazoh/KotlinCoroutine/blob/master/app/src/main/java/com/example/coroutine/MainActivity.kt
