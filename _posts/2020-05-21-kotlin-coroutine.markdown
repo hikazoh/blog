@@ -5,7 +5,7 @@ date:   2020-05-21 09:00:00 +0900
 categories: android kotlin
 ---
 お断り(disclaimer):もちろんこの手順は無保証です。
-[Androidな本][AndroidBook]と[Kotlinな本][KotliBook]で勉強してました
+[Androidな本][AndroidBook]と[Kotlinな本][KotlinBook]で勉強してました
 KotlinでもCoroutineが使えるってので非同期で動かして画面への反映を簡単にできるかなぁ
 ってので試してみました。
 Activityの要素をmain thread以外から書き換えるとruntime errorになっちゃうのでそこはViewModel(LiveData)
@@ -24,9 +24,13 @@ dependencies {
 ## Layoutを定義する
 
 [ここ][layout]を参考にしてください。
-![スクリーン](/blog/images/screen.PNG)でTextViewとButtonの簡単な処理です
 
-##ソースを書く
+
+![スクリーン](/blog/images/screen.PNG)
+
+TextViewとButtonの簡単な処理です
+
+## ソースを書く
 [ここ][src]にコードを置きました。
 
 こいつは５秒まってから現在時刻を取得するObjectです
@@ -45,6 +49,7 @@ dependencies {
 {% endhighlight %}
 
 ViewModelのなかで値が変わったらPropertyに反映させます。
+
 {% highlight kotlin %}
 class StringViewModel : ViewModel(){
     private  val str : MutableLiveData<String> by lazy {

@@ -6,28 +6,12 @@
 </description>
     <link>http://localhost:4000/blog/</link>
     <atom:link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 21 May 2020 16:43:34 +0900</pubDate>
-    <lastBuildDate>Thu, 21 May 2020 16:43:34 +0900</lastBuildDate>
+    <pubDate>Thu, 21 May 2020 16:49:17 +0900</pubDate>
+    <lastBuildDate>Thu, 21 May 2020 16:49:17 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
-        <title>復活</title>
-        <description>&lt;p&gt;ようやく復活
-２回目。環境再構築&lt;/p&gt;
-</description>
-        <pubDate>Thu, 30 Apr 2020 22:31:06 +0900</pubDate>
-        <link>http://localhost:4000/blog/jekyll/update/2020/04/30/Resurrected.html</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/jekyll/update/2020/04/30/Resurrected.html</guid>
-        
-        
-        <category>jekyll</category>
-        
-        <category>update</category>
-        
-      </item>
-    
-      <item>
-        <title>ClojureとApache MXNETのndarrayでゼロから作るDeepLearningを実装中</title>
+        <title>KotlinでAndroidの実装実験です。ViewModel使ってCoroutineのテスト</title>
         <description>&lt;p&gt;お断り(disclaimer):もちろんこの手順は無保証です。
 &lt;a href=&quot;https://amzn.to/3e3MlCl&quot;&gt;Androidな本&lt;/a&gt;と[Kotlinな本][KotliBook]で勉強してました
 KotlinでもCoroutineが使えるってので非同期で動かして画面への反映を簡単にできるかなぁ
@@ -95,14 +79,30 @@ Codeは&lt;a href=&quot;https://github.com/hikazoh/KotlinCoroutine&quot;&gt;こ�
 &lt;p&gt;これでButton押下後の５秒後の時刻を表示します。&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 29 May 2019 09:00:00 +0900</pubDate>
-        <link>http://localhost:4000/blog/android/kotlin/2019/05/29/kotlin-coroutine.html</link>
-        <guid isPermaLink="true">http://localhost:4000/blog/android/kotlin/2019/05/29/kotlin-coroutine.html</guid>
+        <pubDate>Thu, 21 May 2020 09:00:00 +0900</pubDate>
+        <link>http://localhost:4000/blog/android/kotlin/2020/05/21/kotlin-coroutine.html</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/android/kotlin/2020/05/21/kotlin-coroutine.html</guid>
         
         
         <category>android</category>
         
         <category>kotlin</category>
+        
+      </item>
+    
+      <item>
+        <title>復活</title>
+        <description>&lt;p&gt;ようやく復活
+２回目。環境再構築&lt;/p&gt;
+</description>
+        <pubDate>Thu, 30 Apr 2020 22:31:06 +0900</pubDate>
+        <link>http://localhost:4000/blog/jekyll/update/2020/04/30/Resurrected.html</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/jekyll/update/2020/04/30/Resurrected.html</guid>
+        
+        
+        <category>jekyll</category>
+        
+        <category>update</category>
         
       </item>
     
