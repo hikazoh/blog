@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>KotlinでAndroidの実装実験です。ViewModel使ってCoroutineのテスト</title>
-  <meta name="description" content="お断り(disclaimer):もちろんこの手順は無保証です。Androidな本と[Kotlinな本][KotliBook]で勉強してましたKotlinでもCoroutineが使えるってので非同期で動かして画面への反映を簡単にできるかなぁってので試してみました。Activityの要素をmain thread以外か...">
+  <meta name="description" content="お断り(disclaimer):もちろんこの手順は無保証です。Androidな本とKotlinな本で勉強してましたKotlinでもCoroutineが使えるってので非同期で動かして画面への反映を簡単にできるかなぁってので試してみました。Activityの要素をmain thread以外から書き換えるとruntim...">
 
   <link rel="stylesheet" href="/blog/css/main.css">
   <link rel="canonical" href="http://localhost:4000/blog/android/kotlin/2020/05/21/kotlin-coroutine.html">
@@ -63,7 +63,7 @@
 
   <div class="post-content" itemprop="articleBody">
     <p>お断り(disclaimer):もちろんこの手順は無保証です。
-<a href="https://amzn.to/3e3MlCl">Androidな本</a>と[Kotlinな本][KotliBook]で勉強してました
+<a href="https://amzn.to/3e3MlCl">Androidな本</a>と<a href="https://amzn.to/2LM5mxc">Kotlinな本</a>で勉強してました
 KotlinでもCoroutineが使えるってので非同期で動かして画面への反映を簡単にできるかなぁ
 ってので試してみました。
 Activityの要素をmain thread以外から書き換えるとruntime errorになっちゃうのでそこはViewModel(LiveData)
@@ -80,11 +80,14 @@ Codeは<a href="https://github.com/hikazoh/KotlinCoroutine">ここ</a>です</p>
 
 <h2 id="layoutを定義する">Layoutを定義する</h2>
 
-<p><a href="https://github.com/hikazoh/KotlinCoroutine/blob/master/app/src/main/res/layout/activity_main.xml">ここ</a>を参考にしてください。
-<img src="/blog/images/screen.PNG" alt="スクリーン" />でTextViewとButtonの簡単な処理です</p>
+<p><a href="https://github.com/hikazoh/KotlinCoroutine/blob/master/app/src/main/res/layout/activity_main.xml">ここ</a>を参考にしてください。</p>
 
-<p>##ソースを書く
-<a href="https://github.com/hikazoh/KotlinCoroutine/blog/master/app/src/main/java/com/example/coroutine/MainActivity.kt">ここ</a>にコードを置きました。</p>
+<p><img src="/blog/images/screen.PNG" alt="スクリーン" /></p>
+
+<p>TextViewとButtonの簡単な処理です</p>
+
+<h2 id="ソースを書く">ソースを書く</h2>
+<p><a href="https://github.com/hikazoh/KotlinCoroutine/blog/master/app/src/main/java/com/example/coroutine/MainActivity.kt">ここ</a>にコードを置きました。</p>
 
 <p>こいつは５秒まってから現在時刻を取得するObjectです</p>
 

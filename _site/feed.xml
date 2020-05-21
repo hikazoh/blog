@@ -6,14 +6,14 @@
 </description>
     <link>http://localhost:4000/blog/</link>
     <atom:link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 21 May 2020 16:49:17 +0900</pubDate>
-    <lastBuildDate>Thu, 21 May 2020 16:49:17 +0900</lastBuildDate>
+    <pubDate>Thu, 21 May 2020 16:52:34 +0900</pubDate>
+    <lastBuildDate>Thu, 21 May 2020 16:52:34 +0900</lastBuildDate>
     <generator>Jekyll v4.0.0</generator>
     
       <item>
         <title>KotlinでAndroidの実装実験です。ViewModel使ってCoroutineのテスト</title>
         <description>&lt;p&gt;お断り(disclaimer):もちろんこの手順は無保証です。
-&lt;a href=&quot;https://amzn.to/3e3MlCl&quot;&gt;Androidな本&lt;/a&gt;と[Kotlinな本][KotliBook]で勉強してました
+&lt;a href=&quot;https://amzn.to/3e3MlCl&quot;&gt;Androidな本&lt;/a&gt;と&lt;a href=&quot;https://amzn.to/2LM5mxc&quot;&gt;Kotlinな本&lt;/a&gt;で勉強してました
 KotlinでもCoroutineが使えるってので非同期で動かして画面への反映を簡単にできるかなぁ
 ってので試してみました。
 Activityの要素をmain thread以外から書き換えるとruntime errorになっちゃうのでそこはViewModel(LiveData)
@@ -30,11 +30,14 @@ Codeは&lt;a href=&quot;https://github.com/hikazoh/KotlinCoroutine&quot;&gt;こ�
 
 &lt;h2 id=&quot;layoutを定義する&quot;&gt;Layoutを定義する&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/hikazoh/KotlinCoroutine/blob/master/app/src/main/res/layout/activity_main.xml&quot;&gt;ここ&lt;/a&gt;を参考にしてください。
-&lt;img src=&quot;/blog/images/screen.PNG&quot; alt=&quot;スクリーン&quot; /&gt;でTextViewとButtonの簡単な処理です&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/hikazoh/KotlinCoroutine/blob/master/app/src/main/res/layout/activity_main.xml&quot;&gt;ここ&lt;/a&gt;を参考にしてください。&lt;/p&gt;
 
-&lt;p&gt;##ソースを書く
-&lt;a href=&quot;https://github.com/hikazoh/KotlinCoroutine/blog/master/app/src/main/java/com/example/coroutine/MainActivity.kt&quot;&gt;ここ&lt;/a&gt;にコードを置きました。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/blog/images/screen.PNG&quot; alt=&quot;スクリーン&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;TextViewとButtonの簡単な処理です&lt;/p&gt;
+
+&lt;h2 id=&quot;ソースを書く&quot;&gt;ソースを書く&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/hikazoh/KotlinCoroutine/blog/master/app/src/main/java/com/example/coroutine/MainActivity.kt&quot;&gt;ここ&lt;/a&gt;にコードを置きました。&lt;/p&gt;
 
 &lt;p&gt;こいつは５秒まってから現在時刻を取得するObjectです&lt;/p&gt;
 
