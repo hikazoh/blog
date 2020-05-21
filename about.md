@@ -5,7 +5,7 @@ permalink: /about/
 ---
 
 Jekyll使うのが初めてなので慣れません。
-[hikazoh](http://hikazoh.tdiary.net/)です。
+[hikazoh](https://scrapbox.io/hikazoh)です。
 ふつーなサラリードワーカです。
 時々コード書いています。
 
