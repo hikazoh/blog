@@ -2,7 +2,7 @@
 layout: post
 title:  "ClojureとApache MXNETのndarrayでゼロから作るDeepLearningを実装中"
 date:   2019-05-29 09:00:00 +0900
-categories: clojure mxnet deeplearning
+categories: android kotlin
 ---
 お断り(disclaimer):もちろんこの手順は無保証です。
 [Androidな本][AndroidBook]と[Kotlinな本][KotliBook]で勉強してました
